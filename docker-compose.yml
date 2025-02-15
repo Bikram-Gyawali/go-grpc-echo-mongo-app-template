@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app_network
+
+  grpc_server:
+    build: .
+    ports:
+      - "50051:50051"
+    depends_on:
+      - mongo
+    networks:
+      - app_network
+
+  rest_gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - grpc_server
+    environment:
+      - GRPC_SERVER_ADDR="grpc_server:50051"
+    networks:
+      - app_network
+
+volumes:
+  mongo-data:
+
+networks:
+  app_network:
+    driver: bridge
