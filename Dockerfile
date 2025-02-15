@@ -25,7 +25,7 @@ RUN go build -o server cmd/gateway/main.go
 FROM alpine:3.18
 
 # Add metadata to the image
-LABEL maintainer="Your Name <your.email@example.com>" \
+LABEL maintainer="Your Name bikramgyawali57@gmail.com" \
       version="1.0" \
       description="gRPC server built with Go"
 
