@@ -7,13 +7,13 @@ type Services struct {
 	Book *BookService
 }
 
-func InitServices(db *repository.Repositories) *Services {
+func InitServices(repos *repository.Repositories) *Services {
 	return &Services{
 		User: &UserService{
-			UserRepo: db.User,
+			UserRepo: repos.User,
 		},
 		Book: &BookService{
-			BookRepo: db.Book,
+			BookRepo: repos.Book,
 		},
 	}
 }

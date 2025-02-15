@@ -5,14 +5,8 @@ import (
 	"fmt"
 
 	"github.com/Bikram-Gyawali/grpc-echo-mongo-app/api/pb"
-	"github.com/Bikram-Gyawali/grpc-echo-mongo-app/internal/services"
 	"github.com/Bikram-Gyawali/grpc-echo-mongo-app/middleware"
 )
-
-type UserServiceServer struct {
-	pb.UnimplementedUserServiceServer
-	UserService *services.UserService
-}
 
 func (s *UserServiceServer) Register(ctx context.Context, req *pb.RegisterRequest) (*pb.RegisterResponse, error) {
 	fmt.Println("Reached in gRPC response inside")

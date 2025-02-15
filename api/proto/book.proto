@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/Bikram-Gyawali/grpc-echo-mongo-app/api/pb;pb";
+
+import "google/api/annotations.proto";
+
+service BookService {
+
+    rpc GetBook(GetBookRequest) returns (GetBookResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/books/{bookId}"
+        };
+    }
+
+    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/books"
+            body: "*"
+        };
+    }
+
+    rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/books/{bookId}"
+            body: "*"
+        };
+    }
+
+    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse) {
+        option (google.api.http) = {
+            delete: "/api/v1/books/{bookId}"
+        };
+    }
+}
+
+message GetBookRequest {
+    string bookId = 1;
+}
+
+message GetBookResponse {
+    string bookId = 1;
+    string name = 2;
+    string author = 3;
+    string description = 4;
+    string publishedDate = 5;
+    string image = 6;
+}
+
+message CreateBookRequest {
+    string name = 1;
+    string author = 2;
+    string description = 3;
+    string publishedDate = 4;
+    string image = 5;
+}
+
+message CreateBookResponse {
+    string bookId = 1;
+}
+
+message UpdateBookRequest {
+    string bookId = 1;
+    string name = 2;
+    string author = 3;
+    string description = 4;
+    string publishedDate = 5;
+    string image = 6;
+}
+
+message UpdateBookResponse {
+    string bookId = 1;
+    string name = 2;
+    string author = 3;
+    string description = 4;
+    string publishedDate = 5;
+    string image = 6;
+}
+
+message DeleteBookRequest {
+    string bookId = 1;
+}
+
+message DeleteBookResponse {
+    string bookId = 1;
+}
+
