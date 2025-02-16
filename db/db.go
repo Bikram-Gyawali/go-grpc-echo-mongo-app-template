@@ -8,7 +8,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// Connect initializes the MongoDB connection and returns the database instance.
 func Connect(uri string) (*mongo.Database, *mongo.Client, error) {
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
