@@ -88,7 +88,7 @@ This command will:
 ### 3️⃣ Access the API Documentation
 Once the project is running, access Swagger UI at:
 ```
-http://localhost:8080/swagger/index.html
+http://localhost:8080/swagger-ui
 ```
 
 ## 🛠️ Environment Variables
