@@ -120,8 +120,10 @@ This project is **open-source** and licensed under the MIT License.
 💡 **Tip:** Follow best practices when implementing new services and ensure that gRPC contracts remain backward compatible!
 
 ## 🤝 TODO: 
- [ ] - Add zap logger or similar
- [ ] - Add tests cases for services
- [ ] - Error handling and definitions
- [ ] - Proper structured success and error response format
- [ ] - 
+   [X] - Add zap logger or similar
+   
+[X] - Add tests cases for services
+  
+  [X] - Error handling and definitions
+  
+  [X] - Proper structured success and error response format
